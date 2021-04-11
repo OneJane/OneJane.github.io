@@ -312,6 +312,20 @@
   </url>
   
   <url>
+    <loc>http://onejane.gitee.io/tags/ThreadPoolExecutor/</loc>
+    <lastmod>2021-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.gitee.io/tags/BoundedSemaphore/</loc>
+    <lastmod>2021-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://onejane.gitee.io/tags/requests/</loc>
     <lastmod>2021-04-11</lastmod>
     <changefreq>daily</changefreq>
@@ -341,20 +355,6 @@
   
   <url>
     <loc>http://onejane.gitee.io/tags/json/</loc>
-    <lastmod>2021-04-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://onejane.gitee.io/tags/ThreadPoolExecutor/</loc>
-    <lastmod>2021-04-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://onejane.gitee.io/tags/BoundedSemaphore/</loc>
     <lastmod>2021-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -417,13 +417,6 @@
   </url>
   
   <url>
-    <loc>http://onejane.gitee.io/tags/rpc/</loc>
-    <lastmod>2021-04-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://onejane.gitee.io/tags/okhttp3/</loc>
     <lastmod>2021-04-11</lastmod>
     <changefreq>daily</changefreq>
@@ -439,6 +432,13 @@
   
   <url>
     <loc>http://onejane.gitee.io/tags/Retrofit/</loc>
+    <lastmod>2021-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.gitee.io/tags/rpc/</loc>
     <lastmod>2021-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
