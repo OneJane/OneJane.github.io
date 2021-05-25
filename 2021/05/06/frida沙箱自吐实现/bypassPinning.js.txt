@@ -1,0 +1,11 @@
+setImmediate(function(){
+    Java.perform(function(){
+        console.log("Bypassing")
+        Java.use("z1.g").a.implementation = function(){
+            console.log("called here")
+            return;
+        }
+    })
+})
+
+
