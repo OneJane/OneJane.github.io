@@ -1,0 +1,19 @@
+function hook_jifen(){
+    Java.perform(function(){
+        var javaString = Java.use("java.lang.String")
+        Java.use("com.cz.babySister.javabean.UserInfo").setJifen.implementation = function (str) {
+            var result = this.setJifen(javaString.$new("1000"))
+            console.log("setJifen is :", str);
+            return result;
+        }
+        Java.use("com.cz.babySister.javabean.UserInfo").setJifen.implementation = function () {
+            var result = this.getJifen()
+            console.log("getJifen is :", result);
+            return javaString.$new("1000");
+        }
+    })
+}
+function  main() {
+    hook_jifen()
+}
+setImmediate(main)
