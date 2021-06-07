@@ -1,0 +1,14 @@
+function hookVIP(){
+    Java.perform(function(){
+        Java.use("com.chanson.business.message.activity.ChatActivity").Z.implementation = function(){
+            console.log("Calling isVIP ")
+            return false;
+        }
+    })
+    
+}
+function main(){
+    console.log("Start hook")
+    hookVIP()
+}
+setImmediate(main)

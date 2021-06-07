@@ -1,0 +1,298 @@
+function inspectObject(obj) {
+    Java.perform(function () {
+
+        const obj_class = obj.class;
+
+
+        // var objClass = Java.use("java.lang.Object").getClass.apply(object);
+        // obj_class =Java.use("java.lang.Class").getName.apply(objClass);
+
+
+        const fields = obj_class.getDeclaredFields();
+        const methods = obj_class.getMethods();
+        // console.log("Inspecting " + obj.getClass().toString());
+        // console.log("Inspecting " + obj.class.toString());
+        console.log("\tFields:");
+        for (var i in fields) {
+            console.log("\t\t" + fields[i].toString());
+            var className = obj_class.toString().trim().split(" ")[1];
+            // console.log("className is => ",className);
+            var fieldName = fields[i].toString().split(className.concat(".")).pop();
+            console.log(fieldName + " => ", obj[fieldName].value);
+        }
+        // console.log("\tMethods:");
+        // for (var i in methods)
+        //     console.log("\t\t" + methods[i].toString());
+    })
+}
+
+
+function uniqBy(array, key) {
+    var seen = {};
+    return array.filter(function (item) {
+        var k = key(item);
+        return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+    });
+}
+// trace a specific Java Method
+function traceStaticMethod(targetClassMethod) {
+    var delim = targetClassMethod.lastIndexOf(".");
+    if (delim === -1) return;
+    var targetClass = targetClassMethod.slice(0, delim)
+    var targetMethod = targetClassMethod.slice(delim + 1, targetClassMethod.length)
+    var hook = Java.use(targetClass);
+    var overloadCount = hook[targetMethod].overloads.length;
+    console.log("Tracing Static Method => " + targetClassMethod + " [" + overloadCount + " overload(s)]");
+    for (var i = 0; i < overloadCount; i++) {
+        hook[targetMethod].overloads[i].implementation = function () {
+            var output = "";
+            for (var p = 0; p < 100; p++) {
+                output = output.concat("==");
+            }
+            output = output.concat("\r\n")
+            //域值            
+            var fields = this.class.getDeclaredFields();
+            output = output.concat("Fields:");
+            output = output.concat("\r\n")
+            for (var i in fields) {
+                if (fields[i].toString().indexOf(" static ") >= 0) {
+                    // output = output.concat("\t\t static static static " + fields[i].toString());
+                    var className = this.class.toString().trim().split(" ")[1];
+                    // console.log("className is => ",className);
+                    var fieldName = fields[i].toString().split(className.concat(".")).pop();
+                    var fieldType = fields[i].toString().split(" ").slice(-2)[0];
+                    var fieldValue = undefined;
+                    if (!(this[fieldName] === undefined))
+                        fieldValue = this[fieldName].value;
+                    output = output.concat(fieldType + " \t" + fieldName + " => ", fieldValue + " => ", JSON.stringify(fieldValue));
+                    output = output.concat("\r\n")
+                }
+            }
+            //进入函数
+            output = output.concat("\n*** entered " + targetClassMethod);
+            output = output.concat("\r\n")
+            if (arguments.length) console.log();
+            //参数
+            for (var j = 0; j < arguments.length; j++) {
+                output = output.concat("arg[" + j + "]: " + arguments[j] + " => " + JSON.stringify(arguments[j]));
+                output = output.concat("\r\n")
+            }
+            //调用栈
+            output = output.concat(Java.use("android.util.Log").getStackTraceString(Java.use("java.lang.Throwable").$new()));
+            output = output.concat("\r\n")
+            var retval = this[targetMethod].apply(this, arguments); // rare crash (Frida bug?)
+            //返回值
+            output = output.concat("\nretval: " + retval + " => " + JSON.stringify(retval));
+            output = output.concat("\r\n")
+            // inspectObject(this)   
+            //离开函数
+            output = output.concat("\n*** exiting " + targetClassMethod);
+            output = output.concat("\r\n")
+            console.log(output);
+            return retval;
+        }
+    }
+}
+
+// trace a specific Java Method
+function traceInstanceMethod(targetClassMethod) {
+    var delim = targetClassMethod.lastIndexOf(".");
+    if (delim === -1) return;
+    var targetClass = targetClassMethod.slice(0, delim)
+    var targetMethod = targetClassMethod.slice(delim + 1, targetClassMethod.length)
+    var hook = Java.use(targetClass);
+    var overloadCount = hook[targetMethod].overloads.length;
+    console.log("Tracing Instance Method => " + targetClassMethod + " [" + overloadCount + " overload(s)]");
+    for (var i = 0; i < overloadCount; i++) {
+        hook[targetMethod].overloads[i].implementation = function () {
+            var output = "";
+            for (var p = 0; p < 100; p++) {
+                output = output.concat("==");
+            }
+            output = output.concat("\r\n")
+            //域值
+            var Class = Java.use("java.lang.Class");
+            var obj_class = Java.cast(this.getClass(), Class);
+            var fields = this.class.getDeclaredFields();
+            output = output.concat("\tFields:");
+            output = output.concat("\r\n")
+            for (var i in fields) {
+                // output = output.concat("\t\t" + fields[i].toString());
+                // output = output.concat("\r\n")
+                var className = obj_class.toString().trim().split(" ")[1];
+                // console.log("className is => ",className);
+                var fieldName = fields[i].toString().split(className.concat(".")).pop();
+                var fieldType = fields[i].toString().split(" ").slice(-2)[0];
+                var fieldValue = undefined;
+                // frida difference in 12 and 14 of value is undefined
+                if (!(this[fieldName] === undefined))
+                    fieldValue = this[fieldName].value;
+                output = output.concat(fieldType + " \t" + fieldName + " => ", fieldValue + " => ", JSON.stringify(fieldValue));
+                output = output.concat("\r\n")
+            }
+            //进入函数
+            output = output.concat("\n*** entered " + targetClassMethod);
+            output = output.concat("\r\n")
+            if (arguments.length) console.log();
+            //参数
+            for (var j = 0; j < arguments.length; j++) {
+                output = output.concat("arg[" + j + "]: " + arguments[j] + " => " + JSON.stringify(arguments[j]));
+                output = output.concat("\r\n")
+            }
+            //调用栈
+            output = output.concat(Java.use("android.util.Log").getStackTraceString(Java.use("java.lang.Throwable").$new()));
+            output = output.concat("\r\n")
+            var retval = this[targetMethod].apply(this, arguments); // rare crash (Frida bug?)
+            //返回值
+            output = output.concat("\nretval: " + retval + " => " + JSON.stringify(retval));
+            output = output.concat("\r\n")
+            // inspectObject(this)   
+            //离开函数
+            output = output.concat("\n*** exiting " + targetClassMethod);
+            output = output.concat("\r\n")
+            console.log(output);
+            return retval;
+        }
+    }
+}
+
+
+function traceClass(targetClass) {
+    //Java.use是新建一个对象哈，大家还记得么？
+    var hook = Java.use(targetClass);
+    //利用反射的方式，拿到当前类的所有方法
+    var methods = hook.class.getDeclaredMethods();
+    // var methods = hook.class.getMethods();
+    console.log("methods => ", methods)
+    //建完对象之后记得将对象释放掉哈
+    hook.$dispose;
+    //将方法名保存到数组中
+    var parsedStaticMethods = [];
+    var parsedInstanceMethods = [];
+    methods.forEach(function (method) {
+        if (method.toString().indexOf(" static ") >= 0) {
+            parsedStaticMethods.push(method.toString().replace(targetClass + ".", "TOKEN").match(/\sTOKEN(.*)\(/)[1]);
+        } else {
+            parsedInstanceMethods.push(method.toString().replace(targetClass + ".", "TOKEN").match(/\sTOKEN(.*)\(/)[1]);
+        }
+    });
+    //去掉一些重复的值
+    var StaticTargets = uniqBy(parsedStaticMethods, JSON.stringify);
+    var InstanceTargets = uniqBy(parsedInstanceMethods, JSON.stringify);
+    // targets = [];
+    // 判断是否存在构造函数
+    console.log("hook.class.getDeclaredConstructor()=> ", hook.class.getDeclaredConstructors())
+    if (hook.class.getDeclaredConstructors().length > 0) {
+        InstanceTargets = InstanceTargets.concat("$init")
+    }
+    // targets = targets.concat("$init")
+    // console.log("targets=>", targets)
+    //对数组中所有的方法进行hook，traceMethod也就是第一小节的内容
+    StaticTargets.forEach(function (targetMethod) {
+        traceStaticMethod(targetClass + "." + targetMethod);
+    });
+    InstanceTargets.forEach(function (targetMethod) {
+        traceInstanceMethod(targetClass + "." + targetMethod);
+    });
+}
+
+function hook() {
+    Java.perform(function () {
+        console.log("start")
+        Java.enumerateClassLoaders({
+            onMatch: function (loader) {
+                try {
+                    if (loader.findClass("com.ceco.nougat.gravitybox.ModStatusbarColor$1")) {
+                        // if(loader.findClass("de.robv.android.xposed.XC_MethodHook")){
+                        // if(loader.findClass("de.robv.android.xposed.XposedBridge")){
+                        //if(loader.findClass("com.android.internal.statusbar.StatusBarIcon")){
+
+                        console.log("Successfully found loader")
+                        console.log(loader);
+                        Java.classFactory.loader = loader;
+                    }
+                }
+                catch (error) {
+                    console.log("find error:" + error)
+                }
+            },
+            onComplete: function () {
+                console.log("end1")
+            }
+        })
+        // Java.use("de.robv.android.xposed.XposedBridge").log.overload('java.lang.String').implementation = function (str) {
+        //     console.log("entering Xposedbridge.log ",str.toString())
+        //     return true
+        // }
+        //traceClass("com.ceco.nougat.gravitybox.ModStatusbarColor")
+        // Java.use("com.roysue.xposed1.HookTest$1").afterHookedMethod.implementation = function (param){
+        //     console.log("entering afterHookedMethod param is => ",param);
+        //     return this.afterHookedMethod(param);
+        // }
+        // traceClass("de.robv.android.xposed.XC_MethodHook")
+        // Java.use("de.robv.android.xposed.XC_MethodHook$MethodHookParam").setResult.implementation = function(str){
+        //     console.log("entersing de.robv.android.xposed.XC_MethodHook$MethodHookParam setResult => ",str)
+        //     console.log(Java.use("android.util.Log").getStackTraceString(Java.use("java.lang.Throwable").$new()));
+        //     return this.setResult(str);
+        // }
+
+        Java.enumerateLoadedClasses({
+            onMatch: function (className) {
+                if (className.toString().indexOf("gravitybox") > 0 &&
+                    className.toString().indexOf("$") > 0
+                ) {
+                    console.log("found => ", className)
+                    // var interFaces = Java.use(className).class.getInterfaces();
+                    // if(interFaces.length>0){
+                    //     console.log("interface is => ");
+                    //     for(var i in interFaces){
+                    //         console.log("\t",interFaces[i].toString())
+                    //     }
+                    // }
+                    if (Java.use(className).class.getSuperclass()) {
+                        var superClass = Java.use(className).class.getSuperclass().getName();
+                        // console.log("superClass is => ",superClass);
+                        if (superClass.indexOf("XC_MethodHook") > 0) {
+                            console.log("found class is => ", className.toString())
+                            traceClass(className);
+                        }
+
+
+
+                    }
+
+                }
+            }, onComplete: function () {
+                console.log("search completed!")
+
+            }
+        })
+
+        console.log("end2")
+    })
+}
+function main() {
+
+
+
+    // hook()
+    Java.perform(function () {
+
+        // Java.openClassFile("/data/local/tmp/r0gson.dex").load();
+
+
+        // traceClass("com.chanson.business.model.BasicUserInfoBean");
+
+
+        // traceClass("com.mobile.auth.gatewayauth.utils.AESUtils")    
+        // traceClass("com.chanson.common.utils.a.b")
+        traceClass("android.util.Base64")
+        // traceClass("com.mobile.auth.gatewayauth.utils.security.CheckRoot")
+
+        // traceClass("com.tencent.qcloud.tim.uikit.modules.chat.layout.input.InputLayout")
+
+    })
+
+}
+// setImmediate(main)
+setTimeout(main, 2000);
