@@ -1,0 +1,136 @@
+function hookRAW(){
+    Java.perform(function(){
+        console.log("hooking RAW...")
+        Java.use("com.ilulutv.fulao2.other.i.b").a.overload('java.nio.ByteBuffer').implementation = function(bytebuffer){
+            var result =  this.a(bytebuffer)
+            var ByteString = Java.use("com.android.okhttp.okio.ByteString");
+            console.log("result is => ",ByteString.of(result).hex())
+            send(result)
+            return result
+        }
+    })
+    
+}
+
+function hook_SSLsocketandroid8(){
+    Java.perform(function(){
+        console.log("hook_SSLsocket")
+        // concrypt本质对libssl.so进行操作
+        Java.use("com.android.org.conscrypt.ConscryptFileDescriptorSocket$SSLOutputStream").write.overload('[B', 'int', 'int').implementation = function(bytearry,int1,int2){
+            var result = this.write(bytearry,int1,int2);
+            console.log("HTTPS write result,bytearry,int1,int2=>",result,bytearry,int1,int2)
+            var ByteString = Java.use("com.android.okhttp.okio.ByteString");
+            console.log("bytearray contents=>", ByteString.of(bytearry).hex())
+            //console.log(jhexdump(bytearry,int1,int2));
+            // console.log(jhexdump(bytearry));
+            return result;
+        }
+        
+
+        
+        Java.use("com.android.org.conscrypt.ConscryptFileDescriptorSocket$SSLInputStream").read.overload('[B', 'int', 'int').implementation = function(bytearry,int1,int2){
+            var result = this.read(bytearry,int1,int2);
+            console.log("HTTPS read result,bytearry,int1,int2=>",result,bytearry,int1,int2)
+            var ByteString = Java.use("com.android.okhttp.okio.ByteString");
+            console.log("bytearray contents=>", ByteString.of(bytearry).hex())
+            //console.log(jhexdump(bytearry,int1,int2));
+            // console.log(jhexdump(bytearry));
+            return result;
+        }
+        
+
+    })
+}
+function guid() {
+    function S4() {
+      return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    }
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+  }
+function hookClean(){
+    Java.perform(function(){
+        
+        // hook 系统库 不会被混淆 ,图片文件头jpeg都是ffd8ff
+        Java.use("android.graphics.BigmapFactory").decodeByteArray.overload('[B','int','int','android.graphics.BitmapFactory$Options').implementation = function (ba,int1,int2,op){
+            var result = this.decodeByteArray(ba,in1,int2,op)
+            var ByteString = Java.use("com.android.okhttp.okio.ByteString");
+            console.log("ba is=>",ByteString.of(ba).hex())
+            var path = "/sdcard/Download/tmp/"+guid()+".jpg"
+            console.log("path=> ",path)
+            // android hooking search classes File
+            var file = Java.use("java.io.File").$new(path)
+            // android hooking search classes FileOutputStream
+            var fos = Java.use("java.io.FileOutputStream").$new(file);
+            // android hooking list class_methods android.graphics.Bitmap 查看compress实例方法
+            result.compress(Java.use("android.graphics.Bitmap$CompressFormat").JPEG.value,100,fos)
+            // fos.write(data);
+            fos.close();
+            fos.close();
+            return result;
+        }
+    })
+}
+function hookImage() {
+    Java.perform(function () {
+
+        var Runnable = Java.use("java.lang.Runnable");
+        var saveImg = Java.registerClass({
+            name: "com.roysue.runnable",
+            implements: [Runnable],
+            fields: {
+                bm: "android.graphics.Bitmap",
+            },
+            methods: {
+                $init: [{
+                    returnType: "void",
+                    argumentTypes: ["android.graphics.Bitmap"],
+                    implementation: function (bitmap) {
+                        this.bm.value = bitmap;
+                    }
+                }],
+                run: function () {
+
+                    var path = "/sdcard/Download/tmp/" + guid() + ".jpg"
+                    console.log("path=> ", path)
+                    var file = Java.use("java.io.File").$new(path)
+                    var fos = Java.use("java.io.FileOutputStream").$new(file);
+
+                    this.bm.value.compress(Java.use("android.graphics.Bitmap$CompressFormat").JPEG.value, 100, fos)
+                    console.log("success!")
+                    fos.flush();
+                    fos.close();
+
+                }
+            }
+        });
+
+
+        Java.use("android.graphics.BitmapFactory").decodeByteArray.overload('[B', 'int', 'int', 'android.graphics.BitmapFactory$Options').implementation = function (data, offset, length, opts) {
+            var result = this.decodeByteArray(data, offset, length, opts);
+            send(data)
+            // var runnable = saveImg.$new(result);
+            // runnable.run()
+            return result;
+        }
+    })
+}
+function hookVIP(){
+    Java.perform(function(){
+        Java.choose("com.ilulutv.fulao2.film.l",{
+            onMatch:function(ins){
+                console.log("found ins:=>",ins)
+                ins.q0.value=true;
+            },onComplete:function(){
+                console.log("search complete")
+            }
+        })
+    })
+}
+function main(){
+    hookRAW()
+    hook_SSLsocketandroid8()
+    hookImage()
+    hookVIP()
+}
+// setImmediate(main)
+setInterval(main,500)
