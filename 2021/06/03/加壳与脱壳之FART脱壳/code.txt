@@ -1,0 +1,30 @@
+	ArtMethod* artmethod=shadow_frame.GetMethod();
+	
+	if(strstr(artmethod->PrettyMethod().c_str(),"<clinit>"))
+	{
+		
+				
+		//inline const DexFile* ArtMethod::GetDexFile() 
+		const DexFile* dexfile=artmethod->GetDexFile();
+		/*  const uint8_t* Begin() const {
+	1050      return begin_;
+	1051    }
+	1052  
+	1053    size_t Size() const {
+	1054      return size_;
+	1055    }*/
+		const uint8_t* begin=dexfile->Begin();
+		size_t size=dexfile->Size();
+		char dexfilepath[100]={0};
+		sprintf(dexfilepath,"/sdcard/%d_%d_Execute.dex",(int)size,getpid());
+		int fd=open(dexfilepath,O_CREAT|O_RDWR,0666);
+		if(fd>0)
+		{
+			int number=write(fd,begin,size);
+			if(number>0){
+				}
+			close(fd);
+			
+			}
+		
+		}
