@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://onejane.github.io/2021/07/07/SO%E9%80%86%E5%90%91%E4%B9%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E5%85%A5%E9%97%A8/</loc>
+    
+    <lastmod>2021-11-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/2021/10/28/SO%E9%80%86%E5%90%91%E4%B9%8BIDA%E8%BF%87CrackMe%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
+    
+    <lastmod>2021-10-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://onejane.github.io/2021/09/11/%E7%8C%BF%E4%BA%BA%E5%AD%A6%E4%B9%8B%E4%B9%B1%E7%A0%81%E5%A2%9E%E5%BC%BA/</loc>
     
     <lastmod>2021-09-14</lastmod>
@@ -103,13 +117,6 @@
     <loc>http://onejane.github.io/2021/07/19/%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2021-07-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://onejane.github.io/2021/07/07/SO%E9%80%86%E5%90%91%E4%B9%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E5%85%A5%E9%97%A8/</loc>
-    
-    <lastmod>2021-07-10</lastmod>
     
   </url>
   
@@ -473,7 +480,7 @@
 
   <url>
     <loc>http://onejane.github.io/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -481,406 +488,420 @@
   
   <url>
     <loc>http://onejane.github.io/tags/js/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/redis/</loc>
-    <lastmod>2021-09-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://onejane.github.io/tags/so/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/mybatis/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/hexo/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/objection/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/frida/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/kali/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/elasticsearch/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/tags/SO/</loc>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/tags/IDA/</loc>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/opencv/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/FART/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/fart/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/vmp/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/dex2c/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/python/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/ThreadPoolExecutor/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/BoundedSemaphore/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/requests/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/parsel/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/asyncore/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/socket/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/asyncio/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/websocket/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/xpath/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/css/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/json/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/postern/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/charles/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/youpk/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/dexdump/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/xposed/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/okhttp3/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/HttpURLConnection/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/Retrofit/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/Socket/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/WebSocket/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/Protobuf/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/XMPP/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/classloader/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/selenium/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/NDK/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/fiddler/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/nacos/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/feign/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/gateway/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/sentinel/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/wallbreaker/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/rpc/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/scrapy/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/tags/so/</loc>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/scrapy-redis/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/mongo/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/Dalvik/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/ART/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/pymongo/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/flask/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/burpsuite/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/ssl/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/tags/aosp/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -889,63 +910,63 @@
   
   <url>
     <loc>http://onejane.github.io/categories/JS%E9%80%86%E5%90%91/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E6%9E%B6%E6%9E%84/</loc>
-    <lastmod>2021-09-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://onejane.github.io/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/</loc>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://onejane.github.io/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/NDK%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2021-09-14</lastmod>
+    <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
