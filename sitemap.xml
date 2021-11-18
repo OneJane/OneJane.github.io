@@ -655,14 +655,14 @@
   </url>
   
   <url>
-    <loc>http://onejane.github.io/tags/ThreadPoolExecutor/</loc>
+    <loc>http://onejane.github.io/tags/requests/</loc>
     <lastmod>2021-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://onejane.github.io/tags/BoundedSemaphore/</loc>
+    <loc>http://onejane.github.io/tags/parsel/</loc>
     <lastmod>2021-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -697,20 +697,6 @@
   </url>
   
   <url>
-    <loc>http://onejane.github.io/tags/requests/</loc>
-    <lastmod>2021-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://onejane.github.io/tags/parsel/</loc>
-    <lastmod>2021-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://onejane.github.io/tags/xpath/</loc>
     <lastmod>2021-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -732,7 +718,14 @@
   </url>
   
   <url>
-    <loc>http://onejane.github.io/tags/xposed/</loc>
+    <loc>http://onejane.github.io/tags/ThreadPoolExecutor/</loc>
+    <lastmod>2021-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/tags/BoundedSemaphore/</loc>
     <lastmod>2021-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -837,7 +830,7 @@
   </url>
   
   <url>
-    <loc>http://onejane.github.io/tags/fiddler/</loc>
+    <loc>http://onejane.github.io/tags/xposed/</loc>
     <lastmod>2021-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -845,6 +838,13 @@
   
   <url>
     <loc>http://onejane.github.io/tags/NDK/</loc>
+    <lastmod>2021-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://onejane.github.io/tags/fiddler/</loc>
     <lastmod>2021-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
