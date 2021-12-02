@@ -1,0 +1,169 @@
+console.log('Android zy hook start!');
+
+//字节数组转十六进制字符串，对负值填坑
+function Bytes2HexString(arrBytes) {
+    var str = "";
+    for (var i = 0; i < arrBytes.length; i++) {
+        var tmp;
+        var num=arrBytes[i];
+        if (num < 0) {
+            //此处填坑，当byte因为符合位导致数值为负时候，需要对数据进行处理
+            tmp =(255+num+1).toString(16);
+        } else {
+            tmp = num.toString(16);
+        }
+        if (tmp.length == 1) {
+            tmp = "0" + tmp;
+        }
+        str += tmp;
+    }
+    return str;
+}
+
+// 会转成有符号的数字  	JSON.stringify(bytes)
+function HexString2Bytes(str) {
+    var pos = 0;
+    var len = str.length;
+    if (len % 2 != 0) {
+        return null;
+    }
+    len /= 2;
+    var arrBytes = new Array();
+    for (var i = 0; i < len; i++) {
+        var s = str.substr(pos, 2);
+        var v = parseInt(s, 16);
+		// 转成有符号的 10进制
+		if (v > 127) { v = v - 256 }
+		// end
+        arrBytes.push(v);
+        pos += 2;
+    }
+    return arrBytes;
+}
+
+// setImmediate(function(){
+	
+//     Java.perform(function () {
+//         var threadef = Java.use('java.lang.Thread');
+//         var threadinstance = threadef.$new();
+
+//         var ZYNetCrypto = Java.use("com.izuiyou.network.NetCrypto");
+// 		ZYNetCrypto.decodeAES.implementation = function(arg1,arg2){
+// 			console.log("\nNetCrypto.decodeAES "+ arg2);			
+
+// 			var result = this.decodeAES(arg1,arg2);
+
+// 			var strIn = Java.use('java.lang.String');
+// 			var outStr = strIn.$new(result);
+// 			console.log("decbuf=" + Bytes2HexString(arg1) + "\n" + outStr);
+			
+// 			return result;
+// 		}
+		
+// 		ZYNetCrypto.encodeAES.implementation = function(arg1){
+// 			console.log("\nNetCrypto.encodeAES " + arg1.length);
+			
+// 			var strIn = Java.use('java.lang.String');
+// 			var InStr = strIn.$new(arg1);
+			
+// 			var result = this.encodeAES(arg1);
+
+// 			console.log(InStr + " = " + Bytes2HexString(result));
+			
+// 			return result;
+// 		}
+		
+//         ZYNetCrypto.sign.implementation = function(arg1, arg2){
+// 			console.log("\nNetCrypto.sign\n");
+
+//             var result = this.sign(arg1, arg2);
+
+// 			console.log(arg1 + "\nbuf=" + Bytes2HexString(arg2) +  "\nOut Rc=" + result);
+//             return result;
+//         }
+		
+//     });
+// });         
+
+// 加密
+function callEncodeAes(strData){
+	var result = 'null';
+	
+	Java.perform(function() {		
+		var ZYNetCrypto = Java.use("com.izuiyou.network.NetCrypto");
+
+        var strIn = Java.use('java.lang.String');		
+        var byteIn = strIn.$new(strData).getBytes();
+		
+		var res = ZYNetCrypto.encodeAES(byteIn);
+        result =  Bytes2HexString(res);
+
+    });
+
+	return result;			
+}
+
+// 解密
+function callDecodeAes(dataBuf){
+	var rc = 'null';
+
+	var arr = HexString2Bytes(dataBuf);
+
+    Java.perform(function() {
+        var ZYNetCrypto = Java.use("com.izuiyou.network.NetCrypto");
+		var res = ZYNetCrypto.decodeAES(arr,true);
+		rc = Bytes2HexString(res);
+    });
+
+	return rc;
+}
+
+// 签名
+function callSignFun(str,buf){
+	var result = 'null';
+
+	var arr = HexString2Bytes(buf);
+
+    Java.perform(function () {
+        var ZYNetCrypto = Java.use("com.izuiyou.network.NetCrypto");
+        var res = ZYNetCrypto.sign(str,arr) ; 		
+        result = res;		
+    });
+	
+    return result;
+	
+}
+
+
+// 当前使用的key
+function callGetProtocolKey(){
+	var result = 'null';
+    Java.perform(function () {
+        var ZYNetCrypto = Java.use("com.izuiyou.network.NetCrypto");
+        var res = ZYNetCrypto.getProtocolKey() ; 		
+        result = res;
+    });
+	
+    return result;	
+}
+
+// 设置当前使用的key
+function callSetProtocolKey(strKey){
+	var result = 'null';
+	
+    Java.perform(function () {
+        var ZYNetCrypto = Java.use("com.izuiyou.network.NetCrypto");
+        ZYNetCrypto.setProtocolKey(strKey) ; 		
+    });
+	
+    return result;	
+
+}
+
+rpc.exports = {
+	callgetkey : callGetProtocolKey,
+	callsetkey : callSetProtocolKey,
+	calldecaes : callDecodeAes,
+	callencaes : callEncodeAes,
+    callsignfun : callSignFun
+};
