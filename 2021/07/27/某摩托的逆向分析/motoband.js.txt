@@ -1,0 +1,45 @@
+function hook_body_create(){
+    Java.perform(function(){
+        Java.use("okhttp3.RequestBody").create.overload('okhttp3.MediaType', 'java.lang.String').implementation = function(mediaType,str){
+            var result = this.create(mediaType,str)
+            send(str)
+            return result;
+        }
+    })
+}
+function hook_seriesinfo(id){
+    Java.perform(function(){
+        var map = Java.use('java.util.HashMap').$new();
+        var StringClass = Java.use("java.lang.String");
+        // console.log(typeof(id))
+        map.put("modelid", StringClass.$new(id));
+        var RetrofitHelper = Java.use("com.motoband.core.http.RetrofitHelper");
+        RetrofitHelper.getRequestBody(map);
+    })
+}
+function hook_searchv2(id){
+    Java.perform(function(){
+        var search_map = Java.use('java.util.HashMap').$new();
+        var StringClass = Java.use("java.lang.String");
+        var IntegerClass = Java.use("java.lang.Integer");
+        var BooleanClass = Java.use("java.lang.Boolean");
+        var SearchMotoFilterModel = Java.use('com.motoband.core.model.SearchMotoFilterModel').$new();
+        // for brandinfo
+        // search_map.put("type", IntegerClass.$new(1));
+        // search_map.put("brandid", StringClass.$new(id));
+        search_map.put("searchcar",SearchMotoFilterModel.toBrandSeriesJson(Number(id),false));
+        var RetrofitHelper = Java.use("com.motoband.core.http.RetrofitHelper");
+        RetrofitHelper.getRequestBody(search_map);
+    })
+}
+function main(){
+    console.log("Main")
+    hook_body_create(); 
+}
+setImmediate(main)
+
+rpc.exports = {
+    hookseriesinfo: hook_seriesinfo,
+    hooksearchv2: hook_searchv2,
+    hookbodybreate: hook_body_create
+}
