@@ -23,6 +23,11 @@ function hook(){
                 console.log(ex);
             }
         };
+
+        var enumMoudle = Process.enumerateModules();
+        for (var i = 0; i < enumMoudle.length; i++){
+          console.log("module---", enumMoudle[i].name)
+        }
     });
 }
 
