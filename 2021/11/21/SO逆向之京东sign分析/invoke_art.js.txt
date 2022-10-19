@@ -1,0 +1,314 @@
+const func_idx = {'AllocObject': 27,
+ 'CallBooleanMethod': 37,
+ 'CallBooleanMethodA': 39,
+ 'CallBooleanMethodV': 38,
+ 'CallByteMethod': 40,
+ 'CallByteMethodA': 42,
+ 'CallByteMethodV': 41,
+ 'CallCharMethod': 43,
+ 'CallCharMethodA': 45,
+ 'CallCharMethodV': 44,
+ 'CallDoubleMethod': 58,
+ 'CallDoubleMethodA': 60,
+ 'CallDoubleMethodV': 59,
+ 'CallFloatMethod': 55,
+ 'CallFloatMethodA': 57,
+ 'CallFloatMethodV': 56,
+ 'CallIntMethod': 49,
+ 'CallIntMethodA': 51,
+ 'CallIntMethodV': 50,
+ 'CallLongMethod': 52,
+ 'CallLongMethodA': 54,
+ 'CallLongMethodV': 53,
+ 'CallNonvirtualBooleanMethod': 67,
+ 'CallNonvirtualBooleanMethodA': 69,
+ 'CallNonvirtualBooleanMethodV': 68,
+ 'CallNonvirtualByteMethod': 70,
+ 'CallNonvirtualByteMethodA': 72,
+ 'CallNonvirtualByteMethodV': 71,
+ 'CallNonvirtualCharMethod': 73,
+ 'CallNonvirtualCharMethodA': 75,
+ 'CallNonvirtualCharMethodV': 74,
+ 'CallNonvirtualDoubleMethod': 88,
+ 'CallNonvirtualDoubleMethodA': 90,
+ 'CallNonvirtualDoubleMethodV': 89,
+ 'CallNonvirtualFloatMethod': 85,
+ 'CallNonvirtualFloatMethodA': 87,
+ 'CallNonvirtualFloatMethodV': 86,
+ 'CallNonvirtualIntMethod': 79,
+ 'CallNonvirtualIntMethodA': 81,
+ 'CallNonvirtualIntMethodV': 80,
+ 'CallNonvirtualLongMethod': 82,
+ 'CallNonvirtualLongMethodA': 84,
+ 'CallNonvirtualLongMethodV': 83,
+ 'CallNonvirtualObjectMethod': 64,
+ 'CallNonvirtualObjectMethodA': 66,
+ 'CallNonvirtualObjectMethodV': 65,
+ 'CallNonvirtualShortMethod': 76,
+ 'CallNonvirtualShortMethodA': 78,
+ 'CallNonvirtualShortMethodV': 77,
+ 'CallNonvirtualVoidMethod': 91,
+ 'CallNonvirtualVoidMethodA': 93,
+ 'CallNonvirtualVoidMethodV': 92,
+ 'CallObjectMethod': 34,
+ 'CallObjectMethodA': 36,
+ 'CallObjectMethodV': 35,
+ 'CallShortMethod': 46,
+ 'CallShortMethodA': 48,
+ 'CallShortMethodV': 47,
+ 'CallStaticBooleanMethod': 117,
+ 'CallStaticBooleanMethodA': 119,
+ 'CallStaticBooleanMethodV': 118,
+ 'CallStaticByteMethod': 120,
+ 'CallStaticByteMethodA': 122,
+ 'CallStaticByteMethodV': 121,
+ 'CallStaticCharMethod': 123,
+ 'CallStaticCharMethodA': 125,
+ 'CallStaticCharMethodV': 124,
+ 'CallStaticDoubleMethod': 138,
+ 'CallStaticDoubleMethodA': 140,
+ 'CallStaticDoubleMethodV': 139,
+ 'CallStaticFloatMethod': 135,
+ 'CallStaticFloatMethodA': 137,
+ 'CallStaticFloatMethodV': 136,
+ 'CallStaticIntMethod': 129,
+ 'CallStaticIntMethodA': 131,
+ 'CallStaticIntMethodV': 130,
+ 'CallStaticLongMethod': 132,
+ 'CallStaticLongMethodA': 134,
+ 'CallStaticLongMethodV': 133,
+ 'CallStaticObjectMethod': 114,
+ 'CallStaticObjectMethodA': 116,
+ 'CallStaticObjectMethodV': 115,
+ 'CallStaticShortMethod': 126,
+ 'CallStaticShortMethodA': 128,
+ 'CallStaticShortMethodV': 127,
+ 'CallStaticVoidMethod': 141,
+ 'CallStaticVoidMethodA': 143,
+ 'CallStaticVoidMethodV': 142,
+ 'CallVoidMethod': 61,
+ 'CallVoidMethodA': 63,
+ 'CallVoidMethodV': 62,
+ 'DefineClass': 5,
+ 'DeleteGlobalRef': 22,
+ 'DeleteLocalRef': 23,
+ 'DeleteWeakGlobalRef': 227,
+ 'EnsureLocalCapacity': 26,
+ 'ExceptionCheck': 228,
+ 'ExceptionClear': 17,
+ 'ExceptionDescribe': 16,
+ 'ExceptionOccurred': 15,
+ 'FatalError': 18,
+ 'FindClass': 6,
+ 'FromReflectedField': 8,
+ 'FromReflectedMethod': 7,
+ 'GetArrayLength': 171,
+ 'GetBooleanArrayElements': 183,
+ 'GetBooleanArrayRegion': 199,
+ 'GetBooleanField': 96,
+ 'GetByteArrayElements': 184,
+ 'GetByteArrayRegion': 200,
+ 'GetByteField': 97,
+ 'GetCharArrayElements': 185,
+ 'GetCharArrayRegion': 201,
+ 'GetCharField': 98,
+ 'GetDirectBufferAddress': 230,
+ 'GetDirectBufferCapacity': 231,
+ 'GetDoubleArrayElements': 190,
+ 'GetDoubleArrayRegion': 206,
+ 'GetDoubleField': 103,
+ 'GetFieldID': 94,
+ 'GetFloatArrayElements': 189,
+ 'GetFloatArrayRegion': 205,
+ 'GetFloatField': 102,
+ 'GetIntArrayElements': 187,
+ 'GetIntArrayRegion': 203,
+ 'GetIntField': 100,
+ 'GetJavaVM': 219,
+ 'GetLongArrayElements': 188,
+ 'GetLongArrayRegion': 204,
+ 'GetLongField': 101,
+ 'GetMethodID': 33,
+ 'GetObjectArrayElement': 173,
+ 'GetObjectClass': 31,
+ 'GetObjectField': 95,
+ 'GetObjectRefType': 232,
+ 'GetPrimitiveArrayCritical': 222,
+ 'GetShortArrayElements': 186,
+ 'GetShortArrayRegion': 202,
+ 'GetShortField': 99,
+ 'GetStaticBooleanField': 146,
+ 'GetStaticByteField': 147,
+ 'GetStaticCharField': 148,
+ 'GetStaticDoubleField': 153,
+ 'GetStaticFieldID': 144,
+ 'GetStaticFloatField': 152,
+ 'GetStaticIntField': 150,
+ 'GetStaticLongField': 151,
+ 'GetStaticMethodID': 113,
+ 'GetStaticObjectField': 145,
+ 'GetStaticShortField': 149,
+ 'GetStringChars': 165,
+ 'GetStringCritical': 224,
+ 'GetStringLength': 164,
+ 'GetStringRegion': 220,
+ 'GetStringUTFChars': 169,
+ 'GetStringUTFLength': 168,
+ 'GetStringUTFRegion': 221,
+ 'GetSuperclass': 10,
+ 'GetVersion': 4,
+ 'IsAssignableFrom': 11,
+ 'IsInstanceOf': 32,
+ 'IsSameObject': 24,
+ 'MnitorExit': 218,
+ 'MonitorEnter': 217,
+ 'NewBooleanArray': 175,
+ 'NewByteArray': 176,
+ 'NewCharArray': 177,
+ 'NewDirectByteBuffer': 229,
+ 'NewDoubleArray': 182,
+ 'NewFloatArray': 181,
+ 'NewGlobalRef': 21,
+ 'NewIntArray': 179,
+ 'NewLocalRef': 25,
+ 'NewLongArray': 180,
+ 'NewObject': 28,
+ 'NewObjectA': 30,
+ 'NewObjectArray': 172,
+ 'NewObjectV': 29,
+ 'NewShortArray': 178,
+ 'NewString': 163,
+ 'NewStringUTF': 167,
+ 'NewWeakGlobalRef': 226,
+ 'PopLocalFrame': 20,
+ 'PushLocalFrame': 19,
+ 'RegisterNatives': 215,
+ 'ReleaseBooleanArrayElements': 191,
+ 'ReleaseByteArrayElements': 192,
+ 'ReleaseCharArrayElements': 193,
+ 'ReleaseDoubleArrayElements': 198,
+ 'ReleaseFloatArrayElements': 197,
+ 'ReleaseIntArrayElements': 195,
+ 'ReleaseLongArrayElements': 196,
+ 'ReleasePrimitiveArrayCritical': 223,
+ 'ReleaseShortArrayElements': 194,
+ 'ReleaseStringChars': 166,
+ 'ReleaseStringCritical': 225,
+ 'ReleaseStringUTFChars': 170,
+ 'SetBooleanArrayRegion': 207,
+ 'SetBooleanField': 105,
+ 'SetByteArrayRegion': 208,
+ 'SetByteField': 106,
+ 'SetCharArrayRegion': 209,
+ 'SetCharField': 107,
+ 'SetDoubleArrayRegion': 214,
+ 'SetDoubleField': 112,
+ 'SetFloatArrayRegion': 213,
+ 'SetFloatField': 111,
+ 'SetIntArrayRegion': 211,
+ 'SetIntField': 109,
+ 'SetLongArrayRegion': 212,
+ 'SetLongField': 110,
+ 'SetObjectArrayElement': 174,
+ 'SetObjectField': 104,
+ 'SetShortArrayRegion': 210,
+ 'SetShortField': 108,
+ 'SetStaticBooleanField': 155,
+ 'SetStaticByteField': 156,
+ 'SetStaticCharField': 157,
+ 'SetStaticDoubleField': 162,
+ 'SetStaticFloatField': 161,
+ 'SetStaticIntField': 159,
+ 'SetStaticLongField': 160,
+ 'SetStaticObjectField': 154,
+ 'SetStaticShortField': 158,
+ 'Throw': 13,
+ 'ThrowNew': 14,
+ 'ToReflectedField': 12,
+ 'ToReflectedMethod': 9,
+ 'UnregisterNatives': 216,
+ 'reserved0': 0,
+ 'reserved1': 1,
+ 'reserved2': 2,
+ 'reserved3': 3}
+
+var env = Java.vm.getEnv();
+
+function getNativeAddress(idx) { 
+    return env.handle.readPointer().add(idx * Process.pointerSize).readPointer();
+}
+
+function newNativeFunction(nameOrAddress, returnType, argumentsType){
+    var address = null
+    if (nameOrAddress instanceof NativePointer){
+        address = nameOrAddress;
+    }else{
+        var idx = func_idx[nameOrAddress];
+        address = getNativeAddress(idx)
+    }
+    return new NativeFunction(address, returnType, argumentsType)
+}
+
+var GetMethodID = newNativeFunction("GetMethodID", "pointer", ["pointer", "pointer", "pointer", "pointer"]);
+var GetStaticMethodID = newNativeFunction("GetStaticMethodID", "pointer", ["pointer", "pointer", "pointer", "pointer"]);
+var CallStaticObjectMethod = newNativeFunction("CallStaticObjectMethod", 'pointer', ['pointer', 'pointer', 'pointer', 'pointer']);
+var NewObject = newNativeFunction("NewObject", 'pointer', ['pointer', 'pointer', 'pointer']);
+var ToReflectedMethod = newNativeFunction("ToReflectedMethod", 'pointer', ['pointer', 'pointer', 'pointer', 'pointer']);
+
+function getStackTraceFromNative(){
+    //注意：只有在java线程中才能打印java堆栈
+    var env = Java.vm.getEnv();
+    var Log = env.findClass('android/util/Log');
+    var Throwable = env.findClass('java/lang/Throwable');
+    var getStackTraceString = GetStaticMethodID(env, Log, Memory.allocUtf8String("getStackTraceString"), Memory.allocUtf8String("(Ljava/lang/Throwable;)Ljava/lang/String;"));
+    var init = GetMethodID(env, Throwable, Memory.allocUtf8String("<init>"), Memory.allocUtf8String("()V"));
+    var throwableObj = NewObject(env, Throwable, init);
+    var StackTraceString = CallStaticObjectMethod(env, Log, getStackTraceString, throwableObj);
+    var result = Memory.readCString(Java.vm.getEnv().getStringUtfChars(StackTraceString));
+    console.log(result)
+    return result;
+}
+
+function todoOndlopen(libraryName, fn) {
+    return new Promise((resolve, reject) => {
+        var exportName = Java.androidVersion >= 8.1 ? 'android_dlopen_ext' : 'dlopen';
+        var dlopen_ptr = Module.findExportByName(null, exportName);
+        if (dlopen_ptr) {
+            Interceptor.attach(dlopen, {
+                onEnter: function (args) {
+                    var libPath = args[0].readCString();
+                    if (libPath.indexOf(libraryName) != -1) {
+                        console.log(`libraryPath: ${libPath}`);
+                        this.hook = true
+                    }
+                },
+                onLeave: function (retVal) {
+                    if (this.hook) {
+                        console.log('hooking')
+                        resolve(fn());
+                    }
+                }
+            })
+        } else {
+            reject(exportName + ' not found')
+        }
+    })
+}
+
+function hook_JNI_OnLoad(libraryName){
+    return todoOndlopen(libraryName, ()=>{
+        var JNI_OnLoad = Module.findExportByName(libraryName, "JNI_OnLoad");
+        Interceptor.attach(JNI_OnLoad, {
+            onEnter: function(){
+                getStackTraceFromNative();
+            },
+            onLeave: function(){}
+        })
+    })
+}    
+
+function main(){
+    hook_JNI_OnLoad('libmetasec_ml.so');
+}
+
+setImmediate(main);
